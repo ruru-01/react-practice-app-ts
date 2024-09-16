@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { API_BASE_URL } from "../constants";
 
-interface Post {
+interface Posts {
   id: number;
   title: string;
   createdAt: number;
-  categories: [];
+  categories: string[];
   content: string;
 }
 
 export const Toppage = () => {
-  const [ posts, setPosts ] = useState<Post[]>([]);
+  const [ posts, setPosts ] = useState<Posts[]>([]);
   const [ loading, setLoading ] = useState<boolean>(false);
   const formatDate = (dateString: number) => {
     const date = new Date(dateString);
