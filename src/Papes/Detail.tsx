@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { Card, Typography, Box, Container, Chip, CardMedia } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import parse from 'html-react-parser';
-import { API_BASE_URL } from "../constants";
+import { API_BASE_URL } from "../Constants";
 
 interface Post {
   id: number;
@@ -13,7 +13,7 @@ interface Post {
   content: string;
 }
 
-export const Detail = () => {
+export const Detail: React.FC = () => {
   const { id } = useParams();
   const [ post, setPosts ] = useState<Post[]>(null);
   const [ loading, setLoading ] = useState<boolean>(false);

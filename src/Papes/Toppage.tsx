@@ -12,7 +12,7 @@ interface Posts {
   content: string;
 }
 
-export const Toppage = () => {
+export const Toppage: React.FC = () => {
   const [ posts, setPosts ] = useState<Posts[]>([]);
   const [ loading, setLoading ] = useState<boolean>(false);
   const formatDate = (dateString: number) => {
