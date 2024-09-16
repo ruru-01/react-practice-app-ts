@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Card, CardContent, Typography, Grid2, Box, Container, Chip, CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
-import { API_BASE_URL } from "../constants";
+import { API_BASE_URL } from "../Constants";
 
 interface Posts {
   id: number;

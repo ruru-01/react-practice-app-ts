@@ -14,9 +14,10 @@ interface Post {
 }
 
 export const Detail: React.FC = () => {
-  const { id } = useParams();
-  const [ post, setPosts ] = useState<Post[]>(null);
+  const { id } = useParams<{id: string}>();
+  const [ post, setPosts ] = useState<Post | null>(null);
   const [ loading, setLoading ] = useState<boolean>(false);
+
   const formatDate = (dateString: number) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
@@ -50,8 +51,8 @@ export const Detail: React.FC = () => {
         <Card>
           <CardMedia
               component="img"
-              image={post.thumbnailUrl}
-              alt={post.title}
+              image={post?.thumbnailUrl}
+              alt={post?.title}
           />
         </Card>
         <Box sx={{ padding: '20px' }}>
@@ -63,10 +64,10 @@ export const Detail: React.FC = () => {
               }}
           >
             <Typography sx={{ fontSize: '13px', color: '#888888' }}>
-              {formatDate(post.createdAt)}
+              {formatDate(post?.createdAt || 0)}
             </Typography>
             <Box>
-              {post.categories.map((category, index) => (
+              {post?.categories?.map((category, index) => (
                   <Box key={index} sx={{ mr: 1, display: 'inline-block' }}>
                     <Chip
                         label={category}
@@ -79,10 +80,10 @@ export const Detail: React.FC = () => {
             </Box>
           </Box>
           <Typography sx={{ fontSize: '24px', padding: '15px 0' }}>
-            {post.title}
+            {post?.title}
           </Typography>
           <Typography sx={{ fontSize: '16px' }}>
-            {parse(post.content)}
+            {parse(post?.content || '')}
           </Typography>
         </Box>
       </Container>
