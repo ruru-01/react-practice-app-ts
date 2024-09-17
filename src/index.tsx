@@ -6,9 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 
 const rootElement = document.getElementById('root');
-
-if (rootElement) {
-  const root = createRoot(rootElement);
+// @ts-ignore
+const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
@@ -17,10 +16,6 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-} else {
-  console.error('Root element not found');
-}
 
 
 // If you want to start measuring performance in your app, pass a function
