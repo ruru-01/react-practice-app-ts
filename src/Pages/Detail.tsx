@@ -3,22 +3,14 @@ import { Card, Typography, Box, Container, Chip, CardMedia } from '@mui/material
 import { useParams } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { API_BASE_URL } from "../Constants";
-
-interface Post {
-  id: number;
-  title: string;
-  thumbnailUrl: string;
-  createdAt: number;
-  categories: string[];
-  content: string;
-}
+import {Post} from "../Types/Post";
 
 export const Detail: React.FC = () => {
   const { id } = useParams<{id: string}>();
   const [ post, setPosts ] = useState<Post | null>(null);
   const [ loading, setLoading ] = useState<boolean>(false);
 
-  const formatDate = (dateString: number) => {
+  const formatDate = (dateString: string | number) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
     const month = ('0' + (date.getMonth() + 1)).slice(-2);

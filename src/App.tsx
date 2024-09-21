@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 import React from "react";
-import {Header} from "./Papes/Header";
-import {Toppage} from "./Papes/Toppage";
-import {Detail} from "./Papes/Detail";
-import {Contact} from "./Papes/Contact";
+import {Header} from "./Pages/Header";
+import {Toppage} from "./Pages/Toppage";
+import {Detail} from "./Pages/Detail";
+import {Contact} from "./Pages/Contact";
 
 const App: React.FC = () => {
   return (
