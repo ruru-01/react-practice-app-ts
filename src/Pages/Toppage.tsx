@@ -3,17 +3,10 @@ import { Card, CardContent, Typography, Grid2, Box, Container, Chip, CardActionA
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { API_BASE_URL } from "../Constants";
-
-interface Posts {
-  id: number;
-  title: string;
-  createdAt: number;
-  categories: string[];
-  content: string;
-}
+import {Post} from "../Types/Post";
 
 export const Toppage: React.FC = () => {
-  const [ posts, setPosts ] = useState<Posts[]>([]);
+  const [ posts, setPosts ] = useState<Post[]>([]);
   const [ loading, setLoading ] = useState<boolean>(false);
   const formatDate = (dateString: number) => {
     const date = new Date(dateString);
@@ -63,7 +56,7 @@ export const Toppage: React.FC = () => {
                               color: '#888888'
                             }}
                         >
-                          {formatDate(post.createdAt)}
+                          {formatDate(Date.parse(post.createdAt))}
                         </Typography>
                         <Box>
                           {post.categories.map((category, index) => (
